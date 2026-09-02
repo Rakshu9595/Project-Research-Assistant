@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — AI Research Assistant</title>
+  <meta name="description" content="Manage your project reports, research conversations, and academic literature discovery.">
+
+  <!-- Bootstrap 5 & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+  <div class="app-wrapper">
+    <!-- Sidebar Backdrop for Mobile -->
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <!-- App Sidebar -->
+    <aside class="app-sidebar" aria-label="Sidebar Navigation">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <i class="bi bi-mortarboard-fill"></i>
+        </div>
+        <div>
+          <h2 class="brand-title">Research<span style="color: #818cf8;">AI</span></h2>
+          <span class="brand-subtitle">Adaptive Workspace</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Main Menu</div>
+        <a href="dashboard.html" class="sidebar-nav-link active">
+          <i class="bi bi-speedometer2"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="documents.html" class="sidebar-nav-link">
+          <i class="bi bi-file-earmark-text"></i>
+          <span>Documents</span>
+        </a>
+        <a href="chat.html" class="sidebar-nav-link">
+          <i class="bi bi-chat-dots"></i>
+          <span>AI Chat</span>
+        </a>
+        <a href="research.html" class="sidebar-nav-link">
+          <i class="bi bi-journal-text"></i>
+          <span>Research Discovery</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-widget">
+          <div class="user-avatar user-avatar-display">RA</div>
+          <div class="user-info">
+            <h6 class="user-name user-name-display">Researcher</h6>
+            <p class="user-email user-email-display">user@example.com</p>
+          </div>
+          <button class="btn btn-ghost btn-sm p-1 text-light logout-btn" title="Sign Out">
+            <i class="bi bi-box-arrow-right" style="font-size: 1.1rem;"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+      <!-- Topbar -->
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button id="sidebarToggleBtn" class="sidebar-toggle-btn" aria-label="Toggle navigation menu">
+            <i class="bi bi-list fs-5"></i>
+          </button>
+          <nav aria-label="breadcrumb">
+            <ol class="page-breadcrumb">
+              <li class="breadcrumb-item"><a href="dashboard.html"><i class="bi bi-house-door me-1"></i>Workspace</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="topbar-right">
+          <div class="dropdown">
+            <button class="btn btn-ghost btn-sm dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="user-avatar user-avatar-display" style="width: 28px; height: 28px; font-size: 0.75rem;">RA</div>
+              <span class="d-none d-md-inline user-name-display fw-semibold">Researcher</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+              <li><h6 class="dropdown-header user-email-display">user@example.com</h6></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="documents.html"><i class="bi bi-file-earmark-text me-2"></i>My Documents</a></li>
+              <li><a class="dropdown-item" href="chat.html"><i class="bi bi-chat-dots me-2"></i>Research Chat</a></li>
+              <li><a class="dropdown-item" href="research.html"><i class="bi bi-journal-text me-2"></i>Literature Search</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger logout-btn" href="#"><i class="bi bi-box-arrow-right me-2"></i>Sign Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Body -->
+      <main class="app-content">
+        <!-- Welcome Banner -->
+        <section class="welcome-banner">
+          <h1 class="welcome-title font-display">
+            Welcome back, <span class="user-name-display">Researcher</span> 👋
+          </h1>
+          <p class="welcome-subtitle">
+            Continue your project investigations with evidence-grounded AI answers and academic paper discovery.
+          </p>
+          <div class="welcome-actions">
+            <a href="documents.html" class="btn btn-primary btn-sm">
+              <i class="bi bi-cloud-upload"></i> Upload Report
+            </a>
+            <a href="chat.html" class="btn btn-secondary btn-sm">
+              <i class="bi bi-chat-dots"></i> Start Chat
+            </a>
+            <a href="research.html" class="btn btn-secondary btn-sm">
+              <i class="bi bi-search"></i> Discover Papers
+            </a>
+          </div>
+        </section>
+
+        <!-- Stats Overview Cards -->
+        <section class="stats-grid" aria-label="Key Statistics">
+          <!-- Total Documents -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-primary">
+              <i class="bi bi-file-earmark-text"></i>
+            </div>
+            <div>
+              <h3 class="stat-value" id="statTotalDocs">0</h3>
+              <p class="stat-label">Total Documents</p>
+            </div>
+          </div>
+
+          <!-- Processed Documents -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-success">
+              <i class="bi bi-check-circle"></i>
+            </div>
+            <div>
+              <h3 class="stat-value" id="statProcessedDocs">0</h3>
+              <p class="stat-label">Processed for RAG</p>
+            </div>
+          </div>
+
+          <!-- Conversations -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-accent">
+              <i class="bi bi-chat-left-dots"></i>
+            </div>
+            <div>
+              <h3 class="stat-value" id="statTotalChats">0</h3>
+              <p class="stat-label">Conversations</p>
+            </div>
+          </div>
+
+          <!-- Academic Papers -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-secondary">
+              <i class="bi bi-journal-check"></i>
+            </div>
+            <div>
+              <h3 class="stat-value" id="statTotalPapers">0</h3>
+              <p class="stat-label">Papers Discovered</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Main Dashboard Split Grid -->
+        <div class="row g-4">
+          <!-- Recent Documents Card -->
+          <div class="col-lg-7">
+            <div class="card-app h-100">
+              <div class="card-app-header">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-folder2-open text-primary fs-5"></i>
+                  <h4 class="h6 fw-bold mb-0">Recent Project Reports</h4>
+                </div>
+                <a href="documents.html" class="small fw-semibold text-primary">View All <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <div class="card-app-body p-0" id="recentDocsContainer">
+                <div class="text-center py-4">
+                  <div class="spinner-border spinner-border-sm text-primary" role="status"></div>
+                  <span class="ms-2 text-muted small">Loading reports...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Conversations Card -->
+          <div class="col-lg-5">
+            <div class="card-app h-100">
+              <div class="card-app-header">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-chat-left-quote text-primary fs-5"></i>
+                  <h4 class="h6 fw-bold mb-0">Recent Research Chats</h4>
+                </div>
+                <a href="chat.html" class="small fw-semibold text-primary">Open Chat <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <div class="card-app-body" id="recentConversationsContainer">
+                <div class="text-center py-4">
+                  <div class="spinner-border spinner-border-sm text-primary" role="status"></div>
+                  <span class="ms-2 text-muted small">Loading conversations...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action Tiles -->
+          <div class="col-12">
+            <h4 class="h6 fw-bold mb-3 font-display">Recommended Research Actions</h4>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <a href="documents.html" class="quick-action-card">
+                  <div class="quick-action-icon bg-primary-subtle text-primary">
+                    <i class="bi bi-cloud-arrow-up-fill"></i>
+                  </div>
+                  <h5 class="h6 fw-bold mb-1">Upload New Reports</h5>
+                  <p class="text-muted small mb-0">Index PDF, DOCX, and TXT files for semantic RAG evidence extraction.</p>
+                </a>
+              </div>
+
+              <div class="col-md-4">
+                <a href="chat.html" class="quick-action-card">
+                  <div class="quick-action-icon bg-success-subtle text-success">
+                    <i class="bi bi-chat-square-text-fill"></i>
+                  </div>
+                  <h5 class="h6 fw-bold mb-1">Ask Grounded Questions</h5>
+                  <p class="text-muted small mb-0">Interrogate project documentation with exact citations and AI fallback.</p>
+                </a>
+              </div>
+
+              <div class="col-md-4">
+                <a href="research.html" class="quick-action-card">
+                  <div class="quick-action-icon bg-info-subtle text-info">
+                    <i class="bi bi-book-half"></i>
+                  </div>
+                  <h5 class="h6 fw-bold mb-1">Find Literature</h5>
+                  <p class="text-muted small mb-0">Explore peer-reviewed research papers and compare related benchmarks.</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

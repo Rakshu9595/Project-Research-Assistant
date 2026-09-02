@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pymupdf
+python-docx
+sentence-transformers
+chromadb
+langchain-text-splitters
+openai
+httpx
+requests
+pydantic
+pydantic-settings
+python-dotenv
+numpy
+scikit-learn
+pytest

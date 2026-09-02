@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Research Assistant — Document-Aware Intelligent Research Workspace</title>
+  <meta name="description" content="Turn your project reports into an intelligent research workspace with document-grounded RAG, AI fallback, and academic paper discovery.">
+
+  <!-- Bootstrap 5 & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg public-navbar" aria-label="Main Navigation">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <div class="brand-icon">
+          <i class="bi bi-mortarboard-fill"></i>
+        </div>
+        <div>
+          <span class="brand-title">Research<span style="color: var(--primary);">AI</span></span>
+          <span class="brand-subtitle d-none d-sm-block">Adaptive Research Assistant</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#publicNavCollapse" aria-controls="publicNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="publicNavCollapse">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="#architecture">Architecture</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <a href="login.html" class="btn btn-ghost btn-sm">Log In</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero" class="py-5" style="background: radial-gradient(circle at 50% 10%, rgba(79, 70, 229, 0.08) 0%, transparent 60%);">
+    <div class="container py-lg-5">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background-color: var(--primary-subtle); color: var(--primary); font-size: 0.825rem; font-weight: 600; border: 1px solid var(--primary-border);">
+            <i class="bi bi-stars"></i> Adaptive Document-Aware AI
+          </div>
+          <h1 class="display-5 fw-bold mb-3 font-display">
+            Turn Your Project Reports Into an <span style="color: var(--primary);">Intelligent Research Workspace</span>
+          </h1>
+          <p class="lead text-muted mb-4" style="font-size: 1.1rem; line-height: 1.7;">
+            Upload project reports, ask detailed questions, and get evidence-grounded answers with exact citations. If documents don't have the answer, seamless AI fallback and academic paper discovery take over.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="register.html" class="btn btn-primary btn-lg">
+              <i class="bi bi-rocket-takeoff me-2"></i> Get Started Free
+            </a>
+            <a href="login.html" class="btn btn-secondary btn-lg">
+              <i class="bi bi-box-arrow-in-right me-2"></i> Sign In to Workspace
+            </a>
+          </div>
+          <div class="d-flex align-items-center gap-4 mt-4 pt-3 border-top text-muted small">
+            <div><i class="bi bi-check-circle-fill text-success me-1"></i> PDF, DOCX, TXT Support</div>
+            <div><i class="bi bi-check-circle-fill text-success me-1"></i> Grounded RAG Citations</div>
+            <div><i class="bi bi-check-circle-fill text-success me-1"></i> Academic Discovery</div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card-app p-4 shadow-xl position-relative" style="border-radius: var(--radius-xl); background: #ffffff;">
+            <!-- Mock Chat Demonstration UI -->
+            <div class="d-flex align-items-center justify-content-between pb-3 mb-3 border-bottom">
+              <div class="d-flex align-items-center gap-2">
+                <div class="brand-icon" style="width: 32px; height: 32px; font-size: 1rem;">
+                  <i class="bi bi-cpu"></i>
+                </div>
+                <div>
+                  <div class="fw-bold" style="font-size: 0.9rem;">Adaptive Research Q&A</div>
+                  <div class="text-success small" style="font-size: 0.75rem;"><i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i> Active Knowledge Base</div>
+                </div>
+              </div>
+              <span class="badge-app badge-rag"><i class="bi bi-file-earmark-check-fill"></i> Document Grounded</span>
+            </div>
+
+            <!-- User Question Mock -->
+            <div class="d-flex justify-content-end mb-3">
+              <div class="p-3 text-white rounded-3" style="background-color: var(--primary); max-width: 85%; font-size: 0.9rem;">
+                What is the evaluation accuracy and methodology used in Section 4?
+              </div>
+            </div>
+
+            <!-- Assistant Answer Mock -->
+            <div class="p-3 bg-light border rounded-3 mb-3" style="font-size: 0.875rem;">
+              <p class="mb-2">
+                According to <strong>Section 4 (Experimental Results)</strong>, the proposed hybrid pipeline achieved an accuracy of <strong>94.2%</strong> on the benchmark dataset using cross-encoder reranking.
+              </p>
+              
+              <!-- Evidence card -->
+              <div class="p-2 bg-white border rounded mt-2 small d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-2 text-truncate">
+                  <i class="bi bi-file-earmark-pdf text-danger"></i>
+                  <span class="fw-semibold text-truncate">final_project_report.pdf</span>
+                  <span class="text-muted">• Page 14 • Sec 4.2</span>
+                </div>
+                <span class="badge bg-success-subtle text-success border border-success-subtle">98% Match</span>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-between text-muted small pt-2">
+              <span><i class="bi bi-lightning-charge-fill text-warning me-1"></i> RAG Router automatically verified</span>
+              <span>Response: 140ms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features Grid -->
+  <section id="features" class="py-5 bg-white border-top border-bottom">
+    <div class="container py-lg-4">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="badge-app badge-info mb-2">Capabilities</span>
+        <h2 class="display-6 fw-bold font-display">Engineered for Rigorous Academic & Technical Research</h2>
+        <p class="text-muted">Everything you need to analyze, interrogate, and expand upon your technical project documentation.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Feature 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card-app card-app-hover h-100 p-4">
+            <div class="stat-icon-wrapper stat-icon-primary mb-3">
+              <i class="bi bi-file-earmark-text"></i>
+            </div>
+            <h4 class="h5 fw-bold mb-2">Document Intelligence</h4>
+            <p class="text-muted small mb-0">Upload PDF, DOCX, and TXT project reports. Automated vector indexing parses text, headings, and tables into searchable chunks.</p>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card-app card-app-hover h-100 p-4">
+            <div class="stat-icon-wrapper stat-icon-accent mb-3">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h4 class="h5 fw-bold mb-2">Evidence-Based Answers</h4>
+            <p class="text-muted small mb-0">Ask deep questions and get answers strictly grounded in your project documents, eliminating AI hallucinations.</p>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card-app card-app-hover h-100 p-4">
+            <div class="stat-icon-wrapper stat-icon-secondary mb-3">
+              <i class="bi bi-stars"></i>
+            </div>
+            <h4 class="h5 fw-bold mb-2">Intelligent AI Fallback</h4>
+            <p class="text-muted small mb-0">When information is outside uploaded documents, the system provides transparently labelled General AI answers.</p>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card-app card-app-hover h-100 p-4">
+            <div class="stat-icon-wrapper stat-icon-success mb-3">
+              <i class="bi bi-journal-text"></i>
+            </div>
+            <h4 class="h5 fw-bold mb-2">Academic Research Discovery</h4>
+            <p class="text-muted small mb-0">Discover peer-reviewed papers related to your research with relevance scoring, author metadata, and external publication links.</p>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card-app card-app-hover h-100 p-4">
+            <div class="stat-icon-wrapper stat-icon-primary mb-3">
+              <i class="bi bi-pin-angle"></i>
+            </div>
+            <h4 class="h5 fw-bold mb-2">Exact Source Citations</h4>
+            <p class="text-muted small mb-0">Inspect the exact document name, page number, and section title for every claim the assistant generates.</p>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card-app card-app-hover h-100 p-4">
+            <div class="stat-icon-wrapper stat-icon-secondary mb-3">
+              <i class="bi bi-lightbulb"></i>
+            </div>
+            <h4 class="h5 fw-bold mb-2">Project-Aware Extraction</h4>
+            <p class="text-muted small mb-0">One-click contextual paper search automatically analyzes your uploaded project to infer relevant literature.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="py-5" style="background-color: var(--bg-body);">
+    <div class="container py-lg-4">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="badge-app badge-rag mb-2">Workflow</span>
+        <h2 class="display-6 fw-bold font-display">How the Adaptive Assistant Works</h2>
+        <p class="text-muted">A streamlined six-step pipeline from raw documents to verified research insights.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Step 1 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card-app h-100 p-4">
+            <div class="badge bg-primary text-white rounded-circle p-2 mb-3" style="width: 36px; height: 36px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;">1</div>
+            <h5 class="fw-bold">1. Upload Report</h5>
+            <p class="text-muted small">Upload your project reports in PDF, DOCX, or TXT format securely to the workspace.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card-app h-100 p-4">
+            <div class="badge bg-primary text-white rounded-circle p-2 mb-3" style="width: 36px; height: 36px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;">2</div>
+            <h5 class="fw-bold">2. Ask Questions</h5>
+            <p class="text-muted small">Prompt the assistant about methodology, objectives, architectural details, or findings.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card-app h-100 p-4">
+            <div class="badge bg-primary text-white rounded-circle p-2 mb-3" style="width: 36px; height: 36px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;">3</div>
+            <h5 class="fw-bold">3. Retrieve Evidence</h5>
+            <p class="text-muted small">Vector search scans indexed document chunks to find high-relevance paragraphs.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card-app h-100 p-4">
+            <div class="badge bg-primary text-white rounded-circle p-2 mb-3" style="width: 36px; height: 36px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;">4</div>
+            <h5 class="fw-bold">4. Verify & Route</h5>
+            <p class="text-muted small">The router checks if retrieved evidence is sufficient or requires General AI fallback.</p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card-app h-100 p-4">
+            <div class="badge bg-primary text-white rounded-circle p-2 mb-3" style="width: 36px; height: 36px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;">5</div>
+            <h5 class="fw-bold">5. Grounded Answer</h5>
+            <p class="text-muted small">Generates a crisp answer with clickable source citations and confidence metrics.</p>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card-app h-100 p-4">
+            <div class="badge bg-primary text-white rounded-circle p-2 mb-3" style="width: 36px; height: 36px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;">6</div>
+            <h5 class="fw-bold">6. Discover Papers</h5>
+            <p class="text-muted small">Expands the inquiry by querying academic databases for related peer-reviewed literature.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture Section -->
+  <section id="architecture" class="py-5 bg-white border-top border-bottom">
+    <div class="container py-lg-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="badge-app badge-primary mb-2">System Design</span>
+          <h2 class="display-6 fw-bold font-display mb-3">Multi-Tier Adaptive RAG Architecture</h2>
+          <p class="text-muted mb-4">
+            The system employs a smart routing mechanism that differentiates between document-grounded context, general domain knowledge, and external academic APIs.
+          </p>
+          
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex gap-3">
+              <div class="stat-icon-wrapper stat-icon-primary" style="width: 42px; height: 42px; font-size: 1.15rem;">
+                <i class="bi bi-layers-fill"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold mb-1">Document Grounded Flow</h6>
+                <p class="text-muted small mb-0">Documents &rarr; Semantic Chunks &rarr; Vector Index &rarr; Verified Citations.</p>
+              </div>
+            </div>
+
+            <div class="d-flex gap-3">
+              <div class="stat-icon-wrapper stat-icon-secondary" style="width: 42px; height: 42px; font-size: 1.15rem;">
+                <i class="bi bi-arrow-repeat"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold mb-1">Dynamic Query Routing</h6>
+                <p class="text-muted small mb-0">User Query &rarr; Intent & Relevance Classifier &rarr; RAG vs General AI.</p>
+              </div>
+            </div>
+
+            <div class="d-flex gap-3">
+              <div class="stat-icon-wrapper stat-icon-success" style="width: 42px; height: 42px; font-size: 1.15rem;">
+                <i class="bi bi-journal-check"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold mb-1">Academic Paper Retrieval</h6>
+                <p class="text-muted small mb-0">Project Context &rarr; Topic Modeling &rarr; Semantic Scholar / ArXiv APIs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card-app p-4 bg-light border shadow-sm">
+            <div class="text-center p-3">
+              <div class="badge bg-dark text-white mb-3 px-3 py-2">System Routing Flowchart</div>
+              <div class="d-flex flex-column gap-3 align-items-center">
+                <div class="p-3 bg-white border rounded-3 w-100 shadow-xs fw-semibold">
+                  <i class="bi bi-question-circle text-primary me-2"></i> User Research Query
+                </div>
+                <i class="bi bi-arrow-down text-muted" style="font-size: 1.25rem;"></i>
+                <div class="p-3 bg-white border border-primary rounded-3 w-100 shadow-xs fw-semibold text-primary">
+                  <i class="bi bi-diagram-3 me-2"></i> Semantic Router & Retriever
+                </div>
+                <div class="row g-2 w-100 mt-1">
+                  <div class="col-6">
+                    <div class="p-3 rounded-3 text-center" style="background-color: var(--mode-rag-bg); border: 1px solid var(--mode-rag-border);">
+                      <div class="fw-bold text-purple" style="color: var(--mode-rag-text);">Evidence Found</div>
+                      <div class="small text-muted">RAG + Source Citations</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 rounded-3 text-center" style="background-color: var(--mode-general-bg); border: 1px solid var(--mode-general-border);">
+                      <div class="fw-bold" style="color: var(--mode-general-text);">Evidence Missing</div>
+                      <div class="small text-muted">General AI Fallback</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-5" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: #ffffff;">
+    <div class="container py-4 text-center">
+      <h2 class="display-6 fw-bold font-display text-white mb-3">Ready to Accelerate Your Project Research?</h2>
+      <p class="text-light opacity-75 max-w-700 mx-auto mb-4">
+        Join researchers and developers using adaptive document intelligence for grounded research and discovery.
+      </p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="register.html" class="btn btn-primary btn-lg">Create Free Account</a>
+        <a href="login.html" class="btn btn-outline-light btn-lg">Sign In</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Public Footer -->
+  <footer class="public-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="brand-icon" style="width: 34px; height: 34px; font-size: 1.1rem;">
+              <i class="bi bi-mortarboard-fill"></i>
+            </div>
+            <span class="brand-title text-white">Research<span style="color: #818cf8;">AI</span></span>
+          </div>
+          <p class="small text-muted mb-3">
+            An intelligent, adaptive research assistant designed for document-grounded question answering, RAG citation tracking, and academic discovery.
+          </p>
+        </div>
+
+        <div class="col-6 col-lg-2 offset-lg-2">
+          <h5>Navigation</h5>
+          <ul class="list-unstyled small d-flex flex-column gap-2">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h5>Features</h5>
+          <ul class="list-unstyled small d-flex flex-column gap-2">
+            <li><a href="documents.html">Document Hub</a></li>
+            <li><a href="chat.html">Adaptive Chat</a></li>
+            <li><a href="research.html">Paper Discovery</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2">
+          <h5>Technologies</h5>
+          <div class="d-flex flex-wrap gap-1">
+            <span class="badge bg-secondary">HTML5</span>
+            <span class="badge bg-secondary">CSS3</span>
+            <span class="badge bg-secondary">JavaScript</span>
+            <span class="badge bg-secondary">Bootstrap 5</span>
+            <span class="badge bg-secondary">RAG</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <div>&copy; 2026 AI Research Assistant. All rights reserved.</div>
+        <div class="text-muted small">Academic Research Platform</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
