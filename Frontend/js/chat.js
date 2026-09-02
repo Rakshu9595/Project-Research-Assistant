@@ -1,9 +1,3 @@
-/**
- * ==========================================================================
- * AI RESEARCH ASSISTANT — CHAT INTERFACE LOGIC (chat.js)
- * ==========================================================================
- */
-
 let activeConversationId = null;
 let activeDocumentId = null;
 let activeDocumentName = null;

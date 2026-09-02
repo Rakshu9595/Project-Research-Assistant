@@ -1,9 +1,3 @@
-/**
- * ==========================================================================
- * AI RESEARCH ASSISTANT — API CLIENT (api.js)
- * ==========================================================================
- */
-
 const API_BASE_URL = window.API_BASE_URL || localStorage.getItem('ra_api_url') || 'http://localhost:5000/api';
 
 class ApiClient {

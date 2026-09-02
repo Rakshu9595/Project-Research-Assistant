@@ -1,9 +1,3 @@
-/**
- * ==========================================================================
- * AI RESEARCH ASSISTANT — DOCUMENT MANAGEMENT (documents.js)
- * ==========================================================================
- */
-
 let currentDocuments = [];
 let documentToDeleteId = null;
 

@@ -1,9 +1,3 @@
-/**
- * ==========================================================================
- * AI RESEARCH ASSISTANT — DASHBOARD LOGIC (dashboard.js)
- * ==========================================================================
- */
-
 document.addEventListener('DOMContentLoaded', async () => {
   // Enforce authentication
   Auth.requireAuth();

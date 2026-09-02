@@ -1,9 +1,3 @@
-/**
- * ==========================================================================
- * AI RESEARCH ASSISTANT — ACADEMIC RESEARCH DISCOVERY (research.js)
- * ==========================================================================
- */
-
 let allFetchedPapers = [];
 
 document.addEventListener('DOMContentLoaded', () => {

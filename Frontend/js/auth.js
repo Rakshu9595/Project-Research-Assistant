@@ -1,9 +1,3 @@
-/**
- * ==========================================================================
- * AI RESEARCH ASSISTANT — AUTHENTICATION MANAGER (auth.js)
- * ==========================================================================
- */
-
 const Auth = {
   TOKEN_KEY: 'ra_token',
   USER_KEY: 'ra_user',
@@ -92,7 +86,7 @@ const Auth = {
   logout() {
     this.clearSession();
     if (window.Utils) {
-      window.Utils.showToast('Logged out successfully', 'info');
+     window.Utils.showToast('Logged out successfully', 'info');
     }
     setTimeout(() => {
       window.location.href = 'login.html';
