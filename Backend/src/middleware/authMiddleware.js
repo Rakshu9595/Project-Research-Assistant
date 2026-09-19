@@ -5,7 +5,7 @@ export const protect = (req, res, next) => {
         // Get token from Authorization header
         const authHeader = req.headers.authorization;
 
-        // Check if token exists
+        // Check if token exists and is in the correct format
         if (!authHeader || !authHeader.startsWith("Bearer ")) {
             return res.status(401).json({
                 success: false,
