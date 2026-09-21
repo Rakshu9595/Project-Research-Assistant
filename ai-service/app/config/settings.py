@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 
 
-# Load variables from .env file
+# Load variables from .env file and use
 load_dotenv()
 
 
@@ -125,7 +125,7 @@ class Settings:
 
 
     # -----------------------------
-    # RAG Configuration
+    # RAG Configuration 
     # -----------------------------
 
     CHUNK_SIZE = int(
