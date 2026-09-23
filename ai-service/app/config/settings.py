@@ -12,9 +12,9 @@ class Settings:
     Application configuration settings.
     """
 
-    # -----------------------------
+
     # Application
-    # -----------------------------
+  
 
     APP_NAME = os.getenv(
         "APP_NAME",
@@ -32,9 +32,8 @@ class Settings:
     ).lower() == "true"
 
 
-    # -----------------------------
     # FastAPI Server
-    # -----------------------------
+  
 
     HOST = os.getenv(
         "HOST",
@@ -49,9 +48,9 @@ class Settings:
     )
 
 
-    # -----------------------------
+  
     # Node.js Backend
-    # -----------------------------
+  
 
     BACKEND_URL = os.getenv(
         "BACKEND_URL",
@@ -59,9 +58,9 @@ class Settings:
     )
 
 
-    # -----------------------------
+   
     # LLM Configuration
-    # -----------------------------
+   
 
     LLM_PROVIDER = os.getenv(
         "LLM_PROVIDER",
@@ -79,9 +78,9 @@ class Settings:
     )
 
 
-    # -----------------------------
+    
     # Embedding Configuration
-    # -----------------------------
+    
 
     EMBEDDING_MODEL = os.getenv(
         "EMBEDDING_MODEL",
@@ -89,9 +88,9 @@ class Settings:
     )
 
 
-    # -----------------------------
+
     # ChromaDB Configuration
-    # -----------------------------
+
 
     CHROMA_PERSIST_DIRECTORY = os.getenv(
         "CHROMA_PERSIST_DIRECTORY",
@@ -104,9 +103,8 @@ class Settings:
     )
 
 
-    # -----------------------------
     # Research API Configuration
-    # -----------------------------
+
 
     OPENALEX_BASE_URL = os.getenv(
         "OPENALEX_BASE_URL",
@@ -124,10 +122,8 @@ class Settings:
     )
 
 
-    # -----------------------------
     # RAG Configuration 
-    # -----------------------------
-
+   
     CHUNK_SIZE = int(
         os.getenv(
             "CHUNK_SIZE",
